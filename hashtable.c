@@ -15,7 +15,7 @@ unsigned int hash(char *s)
 		s++;
 	}
 
-	return h;
+	return h % NBIN;
 }
 
 void insert(struct node **a, char *s)
@@ -24,7 +24,7 @@ void insert(struct node **a, char *s)
 		return;
 	}
 
-	int i = hash(s) / NBIN;
+	int i = hash(s);
 
 	struct node *curr = a[i];
 	while (curr) {
